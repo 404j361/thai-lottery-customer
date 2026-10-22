@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Pyit Tine Htaung">
+  <defs>
+    <radialGradient id="body" cx="38%" cy="32%" r="70%">
+      <stop offset="0%" stop-color="#F6D27A"/>
+      <stop offset="55%" stop-color="#E8B84A"/>
+      <stop offset="100%" stop-color="#D4922E"/>
+    </radialGradient>
+    <linearGradient id="hat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0A07A"/>
+      <stop offset="100%" stop-color="#E07A5F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- soft ground shadow -->
+  <ellipse cx="64" cy="112" rx="28" ry="6" fill="#1A2B3F" opacity="0.12"/>
+
+  <!-- body -->
+  <ellipse cx="64" cy="72" rx="34" ry="38" fill="url(#body)"/>
+  <ellipse cx="52" cy="58" rx="12" ry="8" fill="#FFF3C9" opacity="0.45"/>
+
+  <!-- arms -->
+  <ellipse cx="30" cy="78" rx="10" ry="7" fill="#E07A5F" transform="rotate(-18 30 78)"/>
+  <ellipse cx="98" cy="78" rx="10" ry="7" fill="#E07A5F" transform="rotate(18 98 78)"/>
+
+  <!-- face -->
+  <circle cx="54" cy="66" r="3.2" fill="#1A2B3F"/>
+  <circle cx="74" cy="66" r="3.2" fill="#1A2B3F"/>
+  <circle cx="55.2" cy="65" r="1" fill="#FFF8E7"/>
+  <circle cx="75.2" cy="65" r="1" fill="#FFF8E7"/>
+  <path d="M58 76c2.4 3.2 9.6 3.2 12 0" fill="none" stroke="#1A2B3F" stroke-width="2.2" stroke-linecap="round"/>
+  <ellipse cx="46" cy="74" rx="4" ry="2.4" fill="#F0A07A" opacity="0.55"/>
+  <ellipse cx="82" cy="74" rx="4" ry="2.4" fill="#F0A07A" opacity="0.55"/>
+
+  <!-- hat -->
+  <path d="M46 48c2-14 10-22 18-26 8 4 16 12 18 26H46z" fill="url(#hat)"/>
+  <ellipse cx="64" cy="48" rx="20" ry="5.5" fill="#C85A45"/>
+  <circle cx="64" cy="22" r="4.5" fill="#F6D27A"/>
+</svg>

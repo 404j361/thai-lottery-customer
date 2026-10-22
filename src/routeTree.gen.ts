@@ -8,59 +8,444 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root"
-import { Route as IndexRouteImport } from "./routes/index"
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/_app'
+import { Route as BuyRouteImport } from './routes/buy'
+import { Route as CheckRouteImport } from './routes/check'
+import { Route as DrawResultsRouteImport } from './routes/draw-results'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as VerifyOtpRouteImport } from './routes/verify-otp'
+import { Route as AppAccountRouteImport } from './routes/_app/account'
+import { Route as AppBankRouteImport } from './routes/_app/bank'
+import { Route as AppDepositRouteImport } from './routes/_app/deposit'
+import { Route as AppHistoryRouteImport } from './routes/_app/history'
+import { Route as AppHomeRouteImport } from './routes/_app/home'
+import { Route as AppResultsRouteImport } from './routes/_app/results'
+import { Route as AppTicketsRouteImport } from './routes/_app/tickets'
+import { Route as AppWithdrawRouteImport } from './routes/_app/withdraw'
+import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
+import { Route as AppTicketsTicketIdRouteImport } from './routes/_app/tickets_.$ticketId'
 
 const IndexRoute = IndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/_app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuyRoute = BuyRouteImport.update({
+  id: '/buy',
+  path: '/buy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckRoute = CheckRouteImport.update({
+  id: '/check',
+  path: '/check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DrawResultsRoute = DrawResultsRouteImport.update({
+  id: '/draw-results',
+  path: '/draw-results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyOtpRoute = VerifyOtpRouteImport.update({
+  id: '/verify-otp',
+  path: '/verify-otp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppAccountRoute = AppAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppBankRoute = AppBankRouteImport.update({
+  id: '/bank',
+  path: '/bank',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDepositRoute = AppDepositRouteImport.update({
+  id: '/deposit',
+  path: '/deposit',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHistoryRoute = AppHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHomeRoute = AppHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppResultsRoute = AppResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTicketsRoute = AppTicketsRouteImport.update({
+  id: '/tickets',
+  path: '/tickets',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppWithdrawRoute = AppWithdrawRouteImport.update({
+  id: '/withdraw',
+  path: '/withdraw',
+  getParentRoute: () => AppRoute,
+} as any)
+const AuthCallbackRoute = AuthCallbackRouteImport.update({
+  id: '/auth/callback',
+  path: '/auth/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppTicketsTicketIdRoute = AppTicketsTicketIdRouteImport.update({
+  id: '/tickets_/$ticketId',
+  path: '/tickets/$ticketId',
+  getParentRoute: () => AppRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/buy': typeof BuyRoute
+  '/check': typeof CheckRoute
+  '/draw-results': typeof DrawResultsRoute
+  '/login': typeof LoginRoute
+  '/onboarding': typeof OnboardingRoute
+  '/register': typeof RegisterRoute
+  '/verify-otp': typeof VerifyOtpRoute
+  '/account': typeof AppAccountRoute
+  '/bank': typeof AppBankRoute
+  '/deposit': typeof AppDepositRoute
+  '/history': typeof AppHistoryRoute
+  '/home': typeof AppHomeRoute
+  '/results': typeof AppResultsRoute
+  '/tickets': typeof AppTicketsRoute
+  '/withdraw': typeof AppWithdrawRoute
+  '/auth/callback': typeof AuthCallbackRoute
+  '/tickets/$ticketId': typeof AppTicketsTicketIdRoute
 }
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/buy': typeof BuyRoute
+  '/check': typeof CheckRoute
+  '/draw-results': typeof DrawResultsRoute
+  '/login': typeof LoginRoute
+  '/onboarding': typeof OnboardingRoute
+  '/register': typeof RegisterRoute
+  '/verify-otp': typeof VerifyOtpRoute
+  '/account': typeof AppAccountRoute
+  '/bank': typeof AppBankRoute
+  '/deposit': typeof AppDepositRoute
+  '/history': typeof AppHistoryRoute
+  '/home': typeof AppHomeRoute
+  '/results': typeof AppResultsRoute
+  '/tickets': typeof AppTicketsRoute
+  '/withdraw': typeof AppWithdrawRoute
+  '/auth/callback': typeof AuthCallbackRoute
+  '/tickets/$ticketId': typeof AppTicketsTicketIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/_app': typeof AppRouteWithChildren
+  '/buy': typeof BuyRoute
+  '/check': typeof CheckRoute
+  '/draw-results': typeof DrawResultsRoute
+  '/login': typeof LoginRoute
+  '/onboarding': typeof OnboardingRoute
+  '/register': typeof RegisterRoute
+  '/verify-otp': typeof VerifyOtpRoute
+  '/_app/account': typeof AppAccountRoute
+  '/_app/bank': typeof AppBankRoute
+  '/_app/deposit': typeof AppDepositRoute
+  '/_app/history': typeof AppHistoryRoute
+  '/_app/home': typeof AppHomeRoute
+  '/_app/results': typeof AppResultsRoute
+  '/_app/tickets': typeof AppTicketsRoute
+  '/_app/withdraw': typeof AppWithdrawRoute
+  '/auth/callback': typeof AuthCallbackRoute
+  '/_app/tickets_/$ticketId': typeof AppTicketsTicketIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: "/"
+  fullPaths:
+    | '/'
+    | '/buy'
+    | '/check'
+    | '/draw-results'
+    | '/login'
+    | '/onboarding'
+    | '/register'
+    | '/verify-otp'
+    | '/account'
+    | '/bank'
+    | '/deposit'
+    | '/history'
+    | '/home'
+    | '/results'
+    | '/tickets'
+    | '/withdraw'
+    | '/auth/callback'
+    | '/tickets/$ticketId'
   fileRoutesByTo: FileRoutesByTo
-  to: "/"
-  id: "__root__" | "/"
+  to:
+    | '/'
+    | '/buy'
+    | '/check'
+    | '/draw-results'
+    | '/login'
+    | '/onboarding'
+    | '/register'
+    | '/verify-otp'
+    | '/account'
+    | '/bank'
+    | '/deposit'
+    | '/history'
+    | '/home'
+    | '/results'
+    | '/tickets'
+    | '/withdraw'
+    | '/auth/callback'
+    | '/tickets/$ticketId'
+  id:
+    | '__root__'
+    | '/'
+    | '/_app'
+    | '/buy'
+    | '/check'
+    | '/draw-results'
+    | '/login'
+    | '/onboarding'
+    | '/register'
+    | '/verify-otp'
+    | '/_app/account'
+    | '/_app/bank'
+    | '/_app/deposit'
+    | '/_app/history'
+    | '/_app/home'
+    | '/_app/results'
+    | '/_app/tickets'
+    | '/_app/withdraw'
+    | '/auth/callback'
+    | '/_app/tickets_/$ticketId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  BuyRoute: typeof BuyRoute
+  CheckRoute: typeof CheckRoute
+  DrawResultsRoute: typeof DrawResultsRoute
+  LoginRoute: typeof LoginRoute
+  OnboardingRoute: typeof OnboardingRoute
+  RegisterRoute: typeof RegisterRoute
+  VerifyOtpRoute: typeof VerifyOtpRoute
+  AuthCallbackRoute: typeof AuthCallbackRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/"
-      path: "/"
-      fullPath: "/"
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_app': {
+      id: '/_app'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buy': {
+      id: '/buy'
+      path: '/buy'
+      fullPath: '/buy'
+      preLoaderRoute: typeof BuyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/check': {
+      id: '/check'
+      path: '/check'
+      fullPath: '/check'
+      preLoaderRoute: typeof CheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draw-results': {
+      id: '/draw-results'
+      path: '/draw-results'
+      fullPath: '/draw-results'
+      preLoaderRoute: typeof DrawResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify-otp': {
+      id: '/verify-otp'
+      path: '/verify-otp'
+      fullPath: '/verify-otp'
+      preLoaderRoute: typeof VerifyOtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/account': {
+      id: '/_app/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AppAccountRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/bank': {
+      id: '/_app/bank'
+      path: '/bank'
+      fullPath: '/bank'
+      preLoaderRoute: typeof AppBankRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/deposit': {
+      id: '/_app/deposit'
+      path: '/deposit'
+      fullPath: '/deposit'
+      preLoaderRoute: typeof AppDepositRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/history': {
+      id: '/_app/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof AppHistoryRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/home': {
+      id: '/_app/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof AppHomeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/results': {
+      id: '/_app/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof AppResultsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/tickets': {
+      id: '/_app/tickets'
+      path: '/tickets'
+      fullPath: '/tickets'
+      preLoaderRoute: typeof AppTicketsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/withdraw': {
+      id: '/_app/withdraw'
+      path: '/withdraw'
+      fullPath: '/withdraw'
+      preLoaderRoute: typeof AppWithdrawRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/auth/callback': {
+      id: '/auth/callback'
+      path: '/auth/callback'
+      fullPath: '/auth/callback'
+      preLoaderRoute: typeof AuthCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/tickets_/$ticketId': {
+      id: '/_app/tickets_/$ticketId'
+      path: '/tickets/$ticketId'
+      fullPath: '/tickets/$ticketId'
+      preLoaderRoute: typeof AppTicketsTicketIdRouteImport
+      parentRoute: typeof AppRoute
     }
   }
 }
 
+interface AppRouteChildren {
+  AppAccountRoute: typeof AppAccountRoute
+  AppBankRoute: typeof AppBankRoute
+  AppDepositRoute: typeof AppDepositRoute
+  AppHistoryRoute: typeof AppHistoryRoute
+  AppHomeRoute: typeof AppHomeRoute
+  AppResultsRoute: typeof AppResultsRoute
+  AppTicketsRoute: typeof AppTicketsRoute
+  AppWithdrawRoute: typeof AppWithdrawRoute
+  AppTicketsTicketIdRoute: typeof AppTicketsTicketIdRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAccountRoute: AppAccountRoute,
+  AppBankRoute: AppBankRoute,
+  AppDepositRoute: AppDepositRoute,
+  AppHistoryRoute: AppHistoryRoute,
+  AppHomeRoute: AppHomeRoute,
+  AppResultsRoute: AppResultsRoute,
+  AppTicketsRoute: AppTicketsRoute,
+  AppWithdrawRoute: AppWithdrawRoute,
+  AppTicketsTicketIdRoute: AppTicketsTicketIdRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  BuyRoute: BuyRoute,
+  CheckRoute: CheckRoute,
+  DrawResultsRoute: DrawResultsRoute,
+  LoginRoute: LoginRoute,
+  OnboardingRoute: OnboardingRoute,
+  RegisterRoute: RegisterRoute,
+  VerifyOtpRoute: VerifyOtpRoute,
+  AuthCallbackRoute: AuthCallbackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 
-import type { getRouter } from "./router.tsx"
-import type { createStart } from "@tanstack/react-start"
-declare module "@tanstack/react-start" {
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>

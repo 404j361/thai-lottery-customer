@@ -1,21 +1,30 @@
-# TanStack Start + shadcn/ui
+# Thai Lottery Customer
 
-This is a template for a new TanStack Start project with React, TypeScript, and shadcn/ui.
+Mobile-first customer wallet app built with TanStack Start and shadcn/ui.
 
-## Adding components
+## Features
 
-To add components to your app, run the following command:
+- Email/password register & login, Google OAuth (`?app=shop`)
+- Wallet balances
+- Guided top-up (wallet → bank → amount + receipt)
+- Withdrawals to a saved bank account
+- Transaction history
+- Profile / bank account management
+
+## Setup
 
 ```bash
-npx shadcn@latest add button
+pnpm install
+pnpm dev
 ```
 
-This will place the ui components in the `components` directory.
+App runs at [http://localhost:3002](http://localhost:3002) and proxies `/api` to `BACKEND_URL` (default `http://localhost:8000`).
 
-## Using components
+Optional env:
 
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
+```bash
+BACKEND_URL=http://localhost:8000
+VITE_API_URL=
 ```
+
+Leave `VITE_API_URL` empty in local dev so requests use the Vite proxy.
