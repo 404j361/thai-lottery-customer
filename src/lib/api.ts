@@ -6,7 +6,14 @@ import {
   saveSession,
 } from "@/features/auth/session"
 
-const API_BASE_URL = import.meta.env.VITE_API_URL ?? ""
+/** Origin only, no trailing slash. Empty = same-origin `/api` (Vite proxy in dev). */
+const API_BASE_URL = String(import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "")
+
+/** Absolute API URL for browser navigations (e.g. Google OAuth) and raw `fetch`. */
+export function apiUrl(path: string): string {
+  const normalized = path.startsWith("/") ? path : `/${path}`
+  return `${API_BASE_URL}${normalized}`
+}
 
 type ApiEnvelope<T> = { data?: T; success?: boolean; message?: string | string[] }
 type AuthTokens = { accessToken: string; refreshToken: string; expiresIn: number; tokenType?: string }

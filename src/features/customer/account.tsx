@@ -4,7 +4,7 @@ import { ContactChannels } from "@/features/contact/contact-channels"
 import { customerApi } from "@/features/customer/api"
 import { PreferencesBar } from "@/features/preferences/preferences-bar"
 import { useI18n } from "@/features/preferences/i18n-provider"
-import { getApiErrorMessage } from "@/lib/api"
+import { apiUrl, getApiErrorMessage } from "@/lib/api"
 import type { UserProfile } from "@/lib/types"
 import { Link, useNavigate } from "@tanstack/react-router"
 import { Building2, ChevronRight, LogOut, Settings2, UserRound } from "lucide-react"
@@ -35,7 +35,7 @@ export function AccountPage() {
     clearSession()
     if (refreshToken) {
       try {
-        await fetch("/api/v1/auth/logout", {
+        await fetch(apiUrl("/api/v1/auth/logout"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ refreshToken }),

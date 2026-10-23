@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { AuthShell } from "@/features/auth/auth-shell"
 import { useI18n } from "@/features/preferences/i18n-provider"
+import { apiUrl } from "@/lib/api"
 import { Link } from "@tanstack/react-router"
 import { LoaderCircle } from "lucide-react"
 import { useState } from "react"
@@ -14,7 +15,7 @@ export function LoginPage() {
 
   function startGoogleLogin() {
     setGooglePending(true)
-    window.location.assign("/api/v1/auth/google?app=shop")
+    window.location.assign(apiUrl("/api/v1/auth/google?app=shop"))
   }
 
   return (
