@@ -60,8 +60,8 @@ export function LandingResultsPage() {
                   onClick={() => setRange(value)}
                   className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
                     active
-                      ? "bg-[#1a5bb5] text-white shadow-sm"
-                      : "border border-sky-500/25 bg-white text-slate-600 hover:border-sky-400/50"
+                      ? "bg-primary text-white shadow-sm"
+                      : "border border-primary/25 bg-white text-slate-600 hover:border-primary/40"
                   }`}
                 >
                   {rangeLabel(value)}
@@ -75,7 +75,7 @@ export function LandingResultsPage() {
           {loading ? <p className="text-sm text-slate-500">{t("loading")}</p> : null}
           {error ? <p className="text-sm text-rose-600">{error}</p> : null}
           {!loading && !error && draws.length === 0 ? (
-            <p className="rounded-2xl border border-dashed border-sky-500/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
+            <p className="rounded-2xl border border-dashed border-primary/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
               {t("results.empty")}
             </p>
           ) : null}

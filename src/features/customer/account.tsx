@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { clearSession, getSession } from "@/features/auth/session"
+import { ContactChannels } from "@/features/contact/contact-channels"
 import { customerApi } from "@/features/customer/api"
 import { PreferencesBar } from "@/features/preferences/preferences-bar"
 import { useI18n } from "@/features/preferences/i18n-provider"
@@ -105,6 +106,14 @@ export function AccountPage() {
           <p className="mt-1 text-xs text-muted-foreground">{t("account.settingsHint")}</p>
         </div>
         <PreferencesBar />
+      </section>
+
+      <section className="space-y-3 rounded-[1.6rem] border border-border/80 bg-card/95 p-4 shadow-sm backdrop-blur">
+        <div>
+          <p className="text-sm font-semibold">{t("account.contact")}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{t("account.contactHint")}</p>
+        </div>
+        <ContactChannels variant="card" />
       </section>
 
       <Button

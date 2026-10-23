@@ -29,6 +29,10 @@ export const en = {
     themeLight: "Light",
     themeDark: "Dark",
     themeSystem: "System",
+    brand: "Color theme",
+    brandOcean: "Ocean blue",
+    brandBlood: "Blood red",
+    brandGreen: "Jade green",
   },
 
   languages: {
@@ -211,6 +215,7 @@ export const en = {
     checkMissTitle: "No prize this draw",
     checkSeeResults: "See full results",
     footerNote: "Official prize data from the Government Lottery Office.",
+    footerContact: "Contact us",
     ticketsTitle: "Tickets on sale",
     ticketsSubtitle: "Browse open packs for the next draw. Sign in when you are ready to buy.",
     ticketsEmpty: "No ticket packs on sale right now.",
@@ -357,6 +362,15 @@ export const en = {
     addBankHint: "Add an account for withdrawals",
     settings: "App settings",
     settingsHint: "Choose your language here.",
+    contact: "Contact us",
+    contactHint: "Message us on your preferred app.",
+  },
+
+  contact: {
+    facebook: "Facebook",
+    messenger: "Messenger",
+    telegram: "Telegram",
+    viber: "Viber",
   },
 
   status: {

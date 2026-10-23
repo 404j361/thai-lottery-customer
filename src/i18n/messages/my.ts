@@ -31,6 +31,10 @@ export const my: MessageTree = {
     themeLight: "အလင်း",
     themeDark: "အမှောင်",
     themeSystem: "စနစ်",
+    brand: "အရောင်အပြင်အဆင်",
+    brandOcean: "သမုဒ္ဒရာပြာ",
+    brandBlood: "သွေးနီ",
+    brandGreen: "ကျောက်စိမ်းစိမ်း",
   },
 
   languages: {
@@ -213,6 +217,7 @@ export const my: MessageTree = {
     checkMissTitle: "ဤရလဒ်တွင် ဆုမရှိပါ",
     checkSeeResults: "ရလဒ် အပြည့်အစုံ ကြည့်ရန်",
     footerNote: "အစိုးရ ထီရုံးမှ တရားဝင် ဆုရလဒ် အချက်အလက်။",
+    footerContact: "ဆက်သွယ်ရန်",
     ticketsTitle: "ရောင်းနေသော လက်မှတ်များ",
     ticketsSubtitle: "နောက်ထပ် ထီအတွက် လက်မှတ်များကို ကြည့်ရှုပါ။ ဝယ်ယူရန် အကောင့်ဝင်ပါ။",
     ticketsEmpty: "ယခု ရောင်းနေသော လက်မှတ် မရှိသေးပါ။",
@@ -359,6 +364,15 @@ export const my: MessageTree = {
     addBankHint: "ငွေထုတ်ရန် အကောင့် ထည့်ပါ",
     settings: "အက်ပ် ဆက်တင်",
     settingsHint: "ဘာသာစကားကို ဤနေရာတွင် ရွေးပါ။",
+    contact: "ဆက်သွယ်ရန်",
+    contactHint: "သင်နှစ်သက်သော အက်ပ်မှ မက်ဆေ့ချ် ပို့ပါ။",
+  },
+
+  contact: {
+    facebook: "Facebook",
+    messenger: "Messenger",
+    telegram: "Telegram",
+    viber: "Viber",
   },
 
   status: {

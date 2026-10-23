@@ -42,9 +42,9 @@ export function AuthShell({
           <h2 className="font-heading text-3xl font-semibold leading-snug tracking-tight xl:text-4xl">
             {panelTitle}
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-sky-100/85">{panelBody}</p>
+          <p className="mt-4 text-base leading-relaxed text-white/85">{panelBody}</p>
         </div>
-        <p className="relative text-sm text-sky-100/60">{t("landing.footerNote")}</p>
+        <p className="relative text-sm text-white/60">{t("landing.footerNote")}</p>
       </aside>
 
       <section className="app-shell-bg flex min-h-dvh flex-col">
@@ -54,19 +54,19 @@ export function AuthShell({
               <img
                 src="/brand/pyit-tine-htaung.png"
                 alt=""
-                className="size-10 rounded-full ring-1 ring-sky-500/15"
+                className="size-10 rounded-full ring-1 ring-primary/15"
               />
               <span className="font-heading text-lg font-semibold tracking-tight text-slate-900">
                 {t("appName")}
               </span>
             </Link>
-            <div className="w-32 shrink-0 sm:w-40">
+            <div className="w-auto max-w-[13.5rem] shrink-0 sm:max-w-none">
               <PreferencesBar showTheme={false} compact />
             </div>
           </div>
 
-          <div className="rounded-2xl border border-sky-500/15 bg-white/95 p-5 shadow-sm backdrop-blur sm:p-7 lg:rounded-3xl lg:border-sky-500/20 lg:p-8 lg:shadow-md lg:shadow-sky-950/5">
-            <p className="text-sm font-medium text-sky-800/80">{eyebrow}</p>
+          <div className="rounded-2xl border border-primary/15 bg-card/95 p-5 shadow-sm backdrop-blur sm:p-7 lg:rounded-3xl lg:border-primary/20 lg:p-8 lg:shadow-md">
+            <p className="text-sm font-medium text-primary/80">{eyebrow}</p>
             <h1 className="mt-1 font-heading text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
               {title}
             </h1>
@@ -76,7 +76,7 @@ export function AuthShell({
             {footer ? <div className="mt-6 text-center text-sm text-slate-500">{footer}</div> : null}
           </div>
 
-          <div className="mt-4 hidden rounded-2xl border border-sky-500/15 bg-white/90 p-4 backdrop-blur lg:block">
+          <div className="mt-4 hidden rounded-2xl border border-primary/15 bg-card/90 p-4 backdrop-blur lg:block">
             <PreferencesBar showTheme={false} />
           </div>
         </div>

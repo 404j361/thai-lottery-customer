@@ -1,4 +1,5 @@
 import { AppProviders } from "@/features/preferences/app-providers"
+import { brandBootScript } from "@/features/preferences/brand-provider"
 import { themeBootScript } from "@/features/preferences/theme-provider"
 import { useI18n } from "@/features/preferences/i18n-provider"
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
@@ -64,10 +65,11 @@ function NotFoundPage() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="my" suppressHydrationWarning>
+    <html lang="my" data-brand="blood" suppressHydrationWarning>
       <head>
         <HeadContent />
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+        <script dangerouslySetInnerHTML={{ __html: brandBootScript }} />
       </head>
       <body>
         <AppProviders>

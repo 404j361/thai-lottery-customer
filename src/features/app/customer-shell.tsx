@@ -1,3 +1,4 @@
+import { ContactFab } from "@/features/contact/contact-fab"
 import { useI18n } from "@/features/preferences/i18n-provider"
 import { Link, Outlet, useRouterState } from "@tanstack/react-router"
 import { ArrowDownToLine, Clock3, Home, Ticket, UserRound, type LucideIcon } from "lucide-react"
@@ -33,6 +34,8 @@ export function CustomerShell() {
         <Outlet />
       </main>
 
+      <ContactFab offsetClassName="bottom-[calc(5.75rem+env(safe-area-inset-bottom))]" />
+
       <nav className="fixed inset-x-0 bottom-0 z-30 pb-[env(safe-area-inset-bottom)]">
         <div className="relative mx-auto max-w-lg px-3 pb-3 pt-7">
           <Link
@@ -43,7 +46,7 @@ export function CustomerShell() {
             <span
               className={`flex size-[4.25rem] flex-col items-center justify-center rounded-full ring-4 ring-background transition-transform duration-150 ease-out active:scale-90 ${
                 ticketsActive
-                  ? "bg-primary text-primary-foreground shadow-[0_10px_24px_rgb(42_99_217/0.45)]"
+                  ? "bg-primary text-primary-foreground shadow-[0_10px_24px_var(--primary-glow)]"
                   : "border-2 border-primary bg-card text-primary shadow-[0_8px_20px_rgb(26_43_63/0.12)]"
               }`}
             >

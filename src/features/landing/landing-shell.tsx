@@ -11,9 +11,20 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { getSession } from "@/features/auth/session"
+import { ContactChannels } from "@/features/contact/contact-channels"
+import { ContactFab } from "@/features/contact/contact-fab"
+import { useBrand } from "@/features/preferences/brand-provider"
+import { brandPalettes, isBrandPalette, type BrandPalette } from "@/features/preferences/brand-themes"
 import { useI18n } from "@/features/preferences/i18n-provider"
 import { isLocale, languages, type Locale } from "@/i18n/languages"
 import { cn } from "@/lib/utils"
+import { Droplets, Leaf, Waves } from "lucide-react"
+
+const brandIcons: Record<BrandPalette, typeof Waves> = {
+  ocean: Waves,
+  blood: Droplets,
+  green: Leaf,
+}
 
 const NAV = [
   { to: "/" as const, labelKey: "landing.navHome" as const },
@@ -24,14 +35,16 @@ const NAV = [
 
 export function LandingShell({ children }: { children: ReactNode }) {
   const { t, locale, setLocale } = useI18n()
+  const { brand, setBrand } = useBrand()
   const pathname = useRouterState({ select: (state) => state.location.pathname })
   const session = typeof window === "undefined" ? null : getSession()
   const signedIn = Boolean(session?.accessToken)
   const languageItems = languages.map((item) => ({ label: item.nativeName, value: item.code }))
+  const brandItems = brandPalettes.map((item) => ({ label: t(item.labelKey), value: item.id }))
 
   return (
     <div className="landing-page flex min-h-dvh flex-col text-slate-900">
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0c2a56]/92 backdrop-blur-md">
+      <header className="landing-chrome sticky top-0 z-40 border-b border-white/10 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 lg:px-8">
           <Link to="/" className="flex items-center gap-1 text-white">
             <img src="/brand/pyit-tine-htaung.png" alt="" className="h-10 w-10 rounded-full" />
@@ -54,6 +67,46 @@ export function LandingShell({ children }: { children: ReactNode }) {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
+            <Select
+              items={brandItems}
+              value={brand}
+              onValueChange={(value) => {
+                if (isBrandPalette(value)) setBrand(value)
+              }}
+            >
+              <SelectTrigger
+                size="sm"
+                aria-label={t("preferences.brand")}
+                className="h-9 min-w-0 rounded-lg border-white/20 bg-white/10 px-2.5 text-white hover:bg-white/15"
+              >
+                <SelectValue>
+                  {(value: BrandPalette) => {
+                    const selected = brandPalettes.find((item) => item.id === value) ?? brandPalettes[0]
+                    const Icon = brandIcons[selected.id]
+                    return (
+                      <>
+                        <Icon className="size-3.5" />
+                        <span className="hidden sm:inline">{t(selected.labelKey)}</span>
+                      </>
+                    )
+                  }}
+                </SelectValue>
+              </SelectTrigger>
+              <SelectContent alignItemWithTrigger={false} align="end" className="min-w-44">
+                <SelectGroup>
+                  {brandPalettes.map(({ id, labelKey }) => {
+                    const Icon = brandIcons[id]
+                    return (
+                      <SelectItem key={id} value={id}>
+                        <Icon className="size-3.5" />
+                        {t(labelKey)}
+                      </SelectItem>
+                    )
+                  })}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+
             <Select
               items={languageItems}
               value={locale}
@@ -117,7 +170,7 @@ export function LandingShell({ children }: { children: ReactNode }) {
                 to={item.to}
                 className={cn(
                   "shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition",
-                  active ? "bg-white/15 text-white" : "text-sky-100/80 hover:bg-white/10 hover:text-white"
+                  active ? "bg-white/15 text-white" : "text-white/75 hover:bg-white/10 hover:text-white"
                 )}
               >
                 {t(item.labelKey)}
@@ -129,11 +182,19 @@ export function LandingShell({ children }: { children: ReactNode }) {
 
       <div className="flex flex-1 flex-col">{children}</div>
 
-      <footer className="border-t border-sky-900/10 bg-[#0c2a56] text-sky-100/80">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-          <div className="flex items-center gap-1">
-            <img src="/brand/pyit-tine-htaung.png" alt="" className="h-8 w-8 rounded-full" />
-            <span className="font-heading text-sm font-semibold text-white">{t("appName")}</span>
+      <ContactFab />
+
+      <footer className="landing-chrome-solid border-t border-white/10 text-white/75">
+        <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-8 lg:px-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-1">
+              <img src="/brand/pyit-tine-htaung.png" alt="" className="h-8 w-8 rounded-full" />
+              <span className="font-heading text-sm font-semibold text-white">{t("appName")}</span>
+            </div>
+            <div className="space-y-2">
+              <p className="text-xs font-medium text-white/70 sm:text-right">{t("landing.footerContact")}</p>
+              <ContactChannels variant="onDark" />
+            </div>
           </div>
           <p className="text-xs sm:text-sm">{t("landing.footerNote")}</p>
         </div>

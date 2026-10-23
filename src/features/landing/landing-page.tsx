@@ -134,7 +134,7 @@ export function LandingPage() {
 
   return (
     <div className="landing-page min-h-dvh text-slate-900">
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0c2a56]/92 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-white/10 landing-chrome backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-6 lg:px-8">
           <a href="#top" className="flex items-center gap-1 text-white">
             <img src="/brand/pyit-tine-htaung.png" alt="" className="h-10 w-10 rounded-full" />
@@ -227,10 +227,10 @@ export function LandingPage() {
                   {t("appName")}
                 </p>
               </div>
-              <h1 className="mt-6 font-heading text-2xl font-medium leading-snug tracking-tight text-sky-50 sm:text-3xl">
+              <h1 className="mt-6 font-heading text-2xl font-medium leading-snug tracking-tight text-white sm:text-3xl">
                 {t("landing.headline")}
               </h1>
-              <p className="mt-3 max-w-md text-base leading-relaxed text-sky-100/85">{t("landing.subhead")}</p>
+              <p className="mt-3 max-w-md text-base leading-relaxed text-white/85">{t("landing.subhead")}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#tickets"
@@ -270,7 +270,7 @@ export function LandingPage() {
                 <button
                   type="button"
                   onClick={onCheckTicket}
-                  className="inline-flex h-12 shrink-0 items-center justify-center rounded-xl bg-[#1a5bb5] px-5 text-sm font-semibold text-white transition hover:bg-[#154a96]"
+                  className="inline-flex h-12 shrink-0 items-center justify-center rounded-xl bg-primary px-5 text-sm font-semibold text-white transition hover:bg-primary/90"
                 >
                   {t("landing.checkAction")}
                 </button>
@@ -313,7 +313,7 @@ export function LandingPage() {
               dateLocale={dateLocale}
             />
 
-            <div className="rounded-2xl border border-sky-500/20 bg-white/90 p-3 shadow-sm sm:p-4">
+            <div className="rounded-2xl border border-primary/20 bg-white/90 p-3 shadow-sm sm:p-4">
               <label className="relative block min-w-0">
                 <Input
                   value={searchNumber}
@@ -330,7 +330,7 @@ export function LandingPage() {
                   type="button"
                   onClick={() => setAppliedNumber(searchNumber.trim())}
                   aria-label={t("tickets.search")}
-                  className="absolute top-1/2 right-1.5 flex size-9 -translate-y-1/2 items-center justify-center rounded-lg bg-[#1a5bb5] text-white transition hover:bg-[#154a96]"
+                  className="absolute top-1/2 right-1.5 flex size-9 -translate-y-1/2 items-center justify-center rounded-lg bg-primary text-white transition hover:bg-primary/90"
                 >
                   <Search className="size-4" />
                 </button>
@@ -340,7 +340,7 @@ export function LandingPage() {
             {ticketsLoading ? <p className="text-sm text-slate-500">{t("loading")}</p> : null}
             {ticketsError ? <p className="text-sm text-rose-600">{ticketsError}</p> : null}
             {!ticketsLoading && !ticketsError && tickets.length === 0 ? (
-              <p className="rounded-2xl border border-dashed border-sky-500/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
+              <p className="rounded-2xl border border-dashed border-primary/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
                 {t("landing.ticketsEmpty")}
               </p>
             ) : null}
@@ -352,14 +352,14 @@ export function LandingPage() {
               {signedIn ? (
                 <Link
                   to="/tickets"
-                  className="inline-flex h-11 items-center rounded-xl bg-[#1a5bb5] px-5 text-sm font-semibold text-white transition hover:bg-[#154a96]"
+                  className="inline-flex h-11 items-center rounded-xl bg-primary px-5 text-sm font-semibold text-white transition hover:bg-primary/90"
                 >
                   {t("landing.ticketsViewAll")}
                 </Link>
               ) : (
                 <Link
                   to="/login"
-                  className="inline-flex h-11 items-center rounded-xl bg-[#1a5bb5] px-5 text-sm font-semibold text-white transition hover:bg-[#154a96]"
+                  className="inline-flex h-11 items-center rounded-xl bg-primary px-5 text-sm font-semibold text-white transition hover:bg-primary/90"
                 >
                   {t("landing.ticketsSignInToBuy")}
                 </Link>
@@ -386,8 +386,8 @@ export function LandingPage() {
                     onClick={() => setRange(value)}
                     className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
                       active
-                        ? "bg-[#1a5bb5] text-white shadow-sm"
-                        : "border border-sky-500/25 bg-white text-slate-600 hover:border-sky-400/50"
+                        ? "bg-primary text-white shadow-sm"
+                        : "border border-primary/25 bg-white text-slate-600 hover:border-primary/40"
                     }`}
                   >
                     {rangeLabel(value)}
@@ -401,7 +401,7 @@ export function LandingPage() {
             {loading ? <p className="text-sm text-slate-500">{t("loading")}</p> : null}
             {error ? <p className="text-sm text-rose-600">{error}</p> : null}
             {!loading && !error && draws.length === 0 ? (
-              <p className="rounded-2xl border border-dashed border-sky-500/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
+              <p className="rounded-2xl border border-dashed border-primary/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
                 {t("results.empty")}
               </p>
             ) : null}
@@ -412,7 +412,7 @@ export function LandingPage() {
         </section>
       </main>
 
-      <footer className="border-t border-sky-900/10 bg-[#0c2a56] text-sky-100/80">
+      <footer className="border-t border-white/10 bg-[var(--wave-to)] text-white/80">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <div className="flex items-center gap-1">
             <img src="/brand/pyit-tine-htaung.png" alt="" className="h-8 w-8 rounded-full" />

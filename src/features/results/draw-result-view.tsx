@@ -91,7 +91,7 @@ function NumberGrid({ numbers, mask }: { numbers: string[]; mask?: PrizeMask }) 
       {numbers.map((number) => (
         <li
           key={number}
-          className="flex min-w-0 items-center justify-center rounded-xl border border-sky-500/15 bg-sky-50/70 px-2 py-2.5 sm:px-3"
+          className="flex min-w-0 items-center justify-center rounded-xl border border-primary/15 bg-primary/5 px-2 py-2.5 sm:px-3"
         >
           <TicketNumber value={number} mask={mask} size="sm" />
         </li>
@@ -118,14 +118,14 @@ function PrizeDisclosure({
   children: ReactNode
 }) {
   return (
-    <section className="overflow-hidden rounded-2xl border border-sky-500/20 bg-white/90">
+    <section className="overflow-hidden rounded-2xl border border-primary/20 bg-white/90">
       <button
         type="button"
         aria-expanded={open}
         aria-controls={`prize-panel-${id}`}
         id={`prize-trigger-${id}`}
         onClick={onToggle}
-        className="flex w-full items-center gap-3 px-4 py-3.5 text-left transition hover:bg-sky-50/80 sm:px-5"
+        className="flex w-full items-center gap-3 px-4 py-3.5 text-left transition hover:bg-primary/5 sm:px-5"
       >
         <ChevronDown
           className={cn(
@@ -140,7 +140,7 @@ function PrizeDisclosure({
           </span>
           <span className="mt-0.5 block text-xs text-slate-500 sm:text-sm">{priceLabel}</span>
         </span>
-        <span className="shrink-0 rounded-full bg-sky-100 px-2.5 py-1 text-xs font-medium tabular-nums text-sky-800">
+        <span className="shrink-0 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium tabular-nums text-primary">
           {count}
         </span>
       </button>
@@ -149,7 +149,7 @@ function PrizeDisclosure({
           id={`prize-panel-${id}`}
           role="region"
           aria-labelledby={`prize-trigger-${id}`}
-          className="border-t border-sky-500/15 px-4 py-4 sm:px-5"
+          className="border-t border-primary/15 px-4 py-4 sm:px-5"
         >
           {children}
         </div>
@@ -256,7 +256,7 @@ export function DrawResultView({
   return (
     <article
       className={cn(
-        "overflow-hidden rounded-2xl border border-sky-500/20 bg-white/90",
+        "overflow-hidden rounded-2xl border border-primary/20 bg-white/90",
         layout === "landing" && "shadow-sm"
       )}
     >
@@ -266,7 +266,7 @@ export function DrawResultView({
         aria-controls={panelId}
         id={triggerId}
         onClick={() => setDrawOpen((value) => !value)}
-        className="flex w-full items-center gap-3 px-4 py-3.5 text-left transition hover:bg-sky-50/80 sm:px-5"
+        className="flex w-full items-center gap-3 px-4 py-3.5 text-left transition hover:bg-primary/5 sm:px-5"
       >
         <ChevronDown
           className={cn(
@@ -279,7 +279,7 @@ export function DrawResultView({
           {formatDrawHeading(draw.drawDate, dateLocale)}
         </h2>
         {firstNumber ? (
-          <span className="hidden shrink-0 font-heading text-sm font-semibold tabular-nums text-sky-800 sm:inline">
+          <span className="hidden shrink-0 font-heading text-sm font-semibold tabular-nums text-primary sm:inline">
             {firstNumber}
           </span>
         ) : null}
@@ -291,12 +291,12 @@ export function DrawResultView({
           role="region"
           aria-labelledby={triggerId}
           className={cn(
-            "flex flex-col gap-4 border-t border-sky-500/15 px-4 py-4 sm:px-5",
+            "flex flex-col gap-4 border-t border-primary/15 px-4 py-4 sm:px-5",
             layout === "landing" && "gap-5"
           )}
         >
           {/* First prize — the one loud moment */}
-          <section className="relative overflow-hidden rounded-2xl bg-[linear-gradient(145deg,#0c2a56_0%,#13407a_48%,#0a2348_100%)] px-5 py-7 text-white shadow-lg shadow-sky-950/15 sm:px-8 sm:py-9">
+          <section className="relative overflow-hidden rounded-2xl bg-[linear-gradient(145deg,var(--wave-to)_0%,var(--wave-mid)_48%,var(--wave-to)_100%)] px-5 py-7 text-white shadow-lg shadow-[0_12px_32px_var(--wave-shadow)] sm:px-8 sm:py-9">
             <div
               className="pointer-events-none absolute -right-8 -top-10 size-40 rounded-full bg-amber-400/15 blur-2xl"
               aria-hidden
@@ -306,7 +306,7 @@ export function DrawResultView({
               aria-hidden
             />
             <div className="relative flex flex-col items-center text-center">
-              <p className="text-sm font-medium text-sky-100/85">
+              <p className="text-sm font-medium text-white/85">
                 {t("results.first")}
                 <span className="mx-2 text-sky-200/40">·</span>
                 <span className="text-amber-300">{price(prizes.first)}</span>

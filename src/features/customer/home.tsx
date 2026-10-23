@@ -155,7 +155,7 @@ export function HomePage() {
         </div>
       ) : null}
 
-      <section className="wave-card relative overflow-hidden rounded-[1.7rem] p-5 text-white shadow-[0_16px_40px_rgb(21_84_216/0.28)]">
+      <section className="wave-card relative overflow-hidden rounded-[1.7rem] p-5 text-white">
         <WaveBackdrop />
         <div className="relative z-10">
           <div className="flex items-center justify-between gap-3">

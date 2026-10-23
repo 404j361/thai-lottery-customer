@@ -80,7 +80,7 @@ export function LandingBuyPage() {
             dateLocale={dateLocale}
           />
 
-          <div className="rounded-2xl border border-sky-500/20 bg-white/90 p-3 shadow-sm sm:p-4">
+          <div className="rounded-2xl border border-primary/20 bg-white/90 p-3 shadow-sm sm:p-4">
             <label className="relative block min-w-0">
               <Input
                 value={searchNumber}
@@ -97,7 +97,7 @@ export function LandingBuyPage() {
                 type="button"
                 onClick={() => setAppliedNumber(searchNumber.trim())}
                 aria-label={t("tickets.search")}
-                className="absolute top-1/2 right-1.5 flex size-9 -translate-y-1/2 items-center justify-center rounded-lg bg-[#1a5bb5] text-white transition hover:bg-[#154a96]"
+                className="absolute top-1/2 right-1.5 flex size-9 -translate-y-1/2 items-center justify-center rounded-lg bg-primary text-white transition hover:bg-primary/90"
               >
                 <Search className="size-4" />
               </button>
@@ -107,7 +107,7 @@ export function LandingBuyPage() {
           {loading ? <p className="text-sm text-slate-500">{t("loading")}</p> : null}
           {error ? <p className="text-sm text-rose-600">{error}</p> : null}
           {!loading && !error && tickets.length === 0 ? (
-            <p className="rounded-2xl border border-dashed border-sky-500/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
+            <p className="rounded-2xl border border-dashed border-primary/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
               {t("landing.ticketsEmpty")}
             </p>
           ) : null}
@@ -117,14 +117,14 @@ export function LandingBuyPage() {
             {signedIn ? (
               <Link
                 to="/tickets"
-                className="inline-flex h-11 items-center rounded-xl bg-[#1a5bb5] px-5 text-sm font-semibold text-white transition hover:bg-[#154a96]"
+                className="inline-flex h-11 items-center rounded-xl bg-primary px-5 text-sm font-semibold text-white transition hover:bg-primary/90"
               >
                 {t("landing.ticketsViewAll")}
               </Link>
             ) : (
               <Link
                 to="/login"
-                className="inline-flex h-11 items-center rounded-xl bg-[#1a5bb5] px-5 text-sm font-semibold text-white transition hover:bg-[#154a96]"
+                className="inline-flex h-11 items-center rounded-xl bg-primary px-5 text-sm font-semibold text-white transition hover:bg-primary/90"
               >
                 {t("landing.ticketsSignInToBuy")}
               </Link>

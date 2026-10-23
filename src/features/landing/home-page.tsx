@@ -50,10 +50,10 @@ export function LandingHomePage() {
                 {t("appName")}
               </p>
             </div>
-            <h1 className="mt-6 font-heading text-2xl font-medium leading-snug tracking-tight text-sky-50 sm:text-3xl">
+            <h1 className="mt-6 font-heading text-2xl font-medium leading-snug tracking-tight text-white sm:text-3xl">
               {t("landing.headline")}
             </h1>
-            <p className="mt-3 max-w-md text-base leading-relaxed text-sky-100/85">{t("landing.subhead")}</p>
+            <p className="mt-3 max-w-md text-base leading-relaxed text-white/85">{t("landing.subhead")}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/buy"
@@ -82,7 +82,7 @@ export function LandingHomePage() {
           </div>
           <Link
             to="/buy"
-            className="text-sm font-semibold text-[#1a5bb5] underline-offset-4 hover:underline"
+            className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
           >
             {t("landing.navBuy")}
           </Link>
@@ -92,7 +92,7 @@ export function LandingHomePage() {
           {loading ? <p className="text-sm text-slate-500">{t("loading")}</p> : null}
           {error ? <p className="text-sm text-rose-600">{error}</p> : null}
           {!loading && !error && tickets.length === 0 ? (
-            <p className="rounded-2xl border border-dashed border-sky-500/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
+            <p className="rounded-2xl border border-dashed border-primary/30 bg-white/70 px-6 py-12 text-center text-sm text-slate-500">
               {t("landing.ticketsEmpty")}
             </p>
           ) : null}

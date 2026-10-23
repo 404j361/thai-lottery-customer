@@ -101,7 +101,7 @@ function DrawCountdownCardInner({
   ] as const
 
   return (
-    <section className="wave-card relative overflow-hidden rounded-[1.6rem] text-white shadow-[0_16px_40px_rgb(12_42_86/0.28)]">
+    <section className="wave-card relative overflow-hidden rounded-[1.6rem] text-white">
       <WaveBackdrop />
 
       <div className="relative z-10 px-4 py-4">
@@ -156,7 +156,7 @@ function DrawCountdownCardInner({
                 className={cn(
                   "shrink-0 rounded-full px-3.5 py-2 text-xs font-semibold transition-colors",
                   active
-                    ? "bg-white text-[#0c2a56]"
+                    ? "bg-white text-[var(--wave-to)]"
                     : "bg-white/10 text-white/85 ring-1 ring-white/20 hover:bg-white/20"
                 )}
               >

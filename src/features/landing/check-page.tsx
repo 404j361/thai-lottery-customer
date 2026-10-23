@@ -132,7 +132,7 @@ export function LandingCheckPage() {
             <h1 className="mt-5 font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl">
               {t("landing.checkTitle")}
             </h1>
-            <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-sky-100/85 sm:text-base">
+            <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-white/85 sm:text-base">
               {t("landing.checkHint")}
             </p>
           </div>
@@ -141,7 +141,7 @@ export function LandingCheckPage() {
             onSubmit={onCheckTicket}
             className="check-ticket-stub mt-8 overflow-hidden rounded-[1.75rem] bg-white shadow-2xl shadow-slate-950/30"
           >
-            <div className="h-1.5 bg-[linear-gradient(90deg,#1a5bb5_0%,#f59e0b_100%)]" aria-hidden />
+            <div className="h-1.5 bg-[linear-gradient(90deg,var(--primary)_0%,var(--brand-highlight)_100%)]" aria-hidden />
 
             <div className="px-5 py-6 sm:px-7 sm:py-8">
               {loading ? <p className="mb-4 text-center text-sm text-slate-500">{t("loading")}</p> : null}
@@ -167,8 +167,8 @@ export function LandingCheckPage() {
                     onKeyDown={(event) => onDigitKeyDown(index, event)}
                     onFocus={(event) => event.currentTarget.select()}
                     className={cn(
-                      "size-11 rounded-xl border border-sky-500/25 bg-sky-50/80 text-center font-heading text-xl font-bold text-slate-900 tabular-nums outline-none transition sm:size-12 sm:text-2xl",
-                      "focus:border-[#1a5bb5] focus:bg-white focus:ring-2 focus:ring-[#1a5bb5]/25",
+                      "size-11 rounded-xl border border-primary/25 bg-primary/5 text-center font-heading text-xl font-bold text-foreground tabular-nums outline-none transition sm:size-12 sm:text-2xl",
+                      "focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/25",
                       "disabled:opacity-60"
                     )}
                   />
@@ -178,7 +178,7 @@ export function LandingCheckPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1a5bb5] text-sm font-semibold text-white transition hover:bg-[#154a96] disabled:opacity-60"
+                className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-white transition hover:bg-primary/90 disabled:opacity-60"
               >
                 <Search className="size-4" aria-hidden />
                 {t("landing.checkAction")}
@@ -193,10 +193,10 @@ export function LandingCheckPage() {
               {isWin ? (
                 <div
                   key={`win-${ticketNumber}-${checkMessage}`}
-                  className="check-result-reveal mt-5 rounded-2xl bg-[linear-gradient(145deg,#0c2a56_0%,#13407a_100%)] px-4 py-5 text-center text-white"
+                  className="check-result-reveal mt-5 rounded-2xl bg-[linear-gradient(145deg,var(--wave-to)_0%,var(--wave-mid)_100%)] px-4 py-5 text-center text-white"
                 >
                   <Sparkles className="mx-auto size-6 text-amber-300" aria-hidden />
-                  <p className="mt-2 text-sm font-medium text-sky-100/90">{t("landing.checkWinTitle")}</p>
+                  <p className="mt-2 text-sm font-medium text-white/90">{t("landing.checkWinTitle")}</p>
                   <p className="mt-1 font-heading text-xl font-semibold text-amber-300">
                     {prizeLabel(checkMessage)}
                   </p>
@@ -221,7 +221,7 @@ export function LandingCheckPage() {
 
           <div className="mt-6 flex flex-col items-center gap-2 text-center">
             {latestDraw ? (
-              <p className="text-sm text-sky-100/80">
+              <p className="text-sm text-white/80">
                 {t("landing.checkAgainst")}{" "}
                 <span className="font-medium text-white">
                   {formatDay(latestDraw.drawDate, dateLocale)}

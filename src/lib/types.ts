@@ -58,6 +58,16 @@ export type UserBank = {
   updatedAt?: string
 }
 
+export type ColorTheme = "ocean" | "blood" | "green"
+export type PreferenceLocale = "my" | "en" | "th"
+export type Appearance = "light" | "dark" | "system"
+
+export type UserPreferences = {
+  colorTheme: ColorTheme
+  locale: PreferenceLocale
+  appearance: Appearance
+}
+
 export type UserProfile = {
   id: string
   email: string
@@ -67,11 +77,14 @@ export type UserProfile = {
   updatedAt: string
   role?: { id: string; name: string; slug: string; isSystem: boolean } | null
   bank: UserBank | null
+  /** Present on current API; treat as optional for older responses. */
+  preferences?: UserPreferences
 }
 
 export type UpdateProfileBody = {
   firstName?: string
   lastName?: string
+  preferences?: Partial<UserPreferences>
 }
 
 export type WalletTransaction = {

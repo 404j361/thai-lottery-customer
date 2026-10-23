@@ -5,6 +5,14 @@ const STORAGE_KEY = "thai_lottery_customer_session"
 const COOKIE_KEY = "thai_lottery_customer_gate"
 const SESSION_AGE_SECONDS = 60 * 60 * 24 * 7
 
+/** Fired in the browser after saveSession / clearSession so UI can re-sync. */
+export const SESSION_CHANGE_EVENT = "thai-lottery-session-change"
+
+function emitSessionChange() {
+  if (typeof window === "undefined") return
+  window.dispatchEvent(new Event(SESSION_CHANGE_EVENT))
+}
+
 export type AuthSession = {
   accessToken: string
   refreshToken?: string
@@ -74,6 +82,7 @@ export function saveSession(session: AuthSession): void {
   }
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(saved))
   document.cookie = `${COOKIE_KEY}=active; Path=/; Max-Age=${SESSION_AGE_SECONDS}; SameSite=Lax`
+  emitSessionChange()
 }
 
 export function completeOAuthSession(accessToken: string, refreshToken: string, expiresIn?: number): void {
@@ -89,4 +98,5 @@ export function clearSession(): void {
   if (typeof document !== "undefined") {
     document.cookie = `${COOKIE_KEY}=; Path=/; Max-Age=0; SameSite=Lax`
   }
+  emitSessionChange()
 }

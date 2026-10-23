@@ -20,11 +20,15 @@ pnpm dev
 
 App runs at [http://localhost:3002](http://localhost:3002) and proxies `/api` to `BACKEND_URL` (default `http://localhost:8000`).
 
-Optional env:
+Copy `.env.example` to `.env` (or edit `.env` directly). Variables used by the app:
 
-```bash
-BACKEND_URL=http://localhost:8000
-VITE_API_URL=
-```
+| Variable | Where | Purpose |
+|----------|--------|---------|
+| `BACKEND_URL` | `vite.config.ts` | Dev proxy target for `/api` (default `http://localhost:8000`) |
+| `VITE_API_URL` | `src/lib/api.ts` | Client API origin; leave empty in dev to use the proxy |
+| `VITE_CONTACT_FACEBOOK` | `src/features/contact/channels.ts` | Facebook contact URL |
+| `VITE_CONTACT_MESSENGER` | `src/features/contact/channels.ts` | Messenger contact URL |
+| `VITE_CONTACT_TELEGRAM` | `src/features/contact/channels.ts` | Telegram contact URL |
+| `VITE_CONTACT_VIBER` | `src/features/contact/channels.ts` | Viber contact URL |
 
-Leave `VITE_API_URL` empty in local dev so requests use the Vite proxy.
+Leave `VITE_API_URL` empty in local dev so requests use the Vite proxy. Restart the dev server after changing env.

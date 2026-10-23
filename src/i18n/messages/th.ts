@@ -31,6 +31,10 @@ export const th: MessageTree = {
     themeLight: "สว่าง",
     themeDark: "มืด",
     themeSystem: "ระบบ",
+    brand: "โทนสี",
+    brandOcean: "น้ำเงินทะเล",
+    brandBlood: "แดงเลือด",
+    brandGreen: "เขียวหยก",
   },
 
   languages: {
@@ -213,6 +217,7 @@ export const th: MessageTree = {
     checkMissTitle: "ไม่ถูกรางวัลในงวดนี้",
     checkSeeResults: "ดูผลรางวัลทั้งหมด",
     footerNote: "ข้อมูลรางวัลอย่างเป็นทางการจากสำนักงานสลากกินแบ่งรัฐบาล",
+    footerContact: "ติดต่อเรา",
     ticketsTitle: "สลากที่เปิดขาย",
     ticketsSubtitle: "ดูแพ็กสลากสำหรับงวดถัดไป เข้าสู่ระบบเมื่อพร้อมซื้อ",
     ticketsEmpty: "ยังไม่มีแพ็กสลากที่เปิดขาย",
@@ -359,6 +364,15 @@ export const th: MessageTree = {
     addBankHint: "เพิ่มบัญชีสำหรับถอนเงิน",
     settings: "ตั้งค่าแอป",
     settingsHint: "เลือกภาษาได้ที่นี่",
+    contact: "ติดต่อเรา",
+    contactHint: "ส่งข้อความถึงเราผ่านแอปที่คุณใช้",
+  },
+
+  contact: {
+    facebook: "Facebook",
+    messenger: "Messenger",
+    telegram: "Telegram",
+    viber: "Viber",
   },
 
   status: {
