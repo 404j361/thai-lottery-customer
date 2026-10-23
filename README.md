@@ -32,3 +32,12 @@ Copy `.env.example` to `.env` (or edit `.env` directly). Variables used by the a
 | `VITE_CONTACT_VIBER` | `src/features/contact/channels.ts` | Viber contact URL |
 
 Leave `VITE_API_URL` empty in local dev so requests use the Vite proxy. Restart the dev server after changing env.
+
+## Deploy (Vercel)
+
+This is a **TanStack Start** app. Vercel needs the **Nitro** Vite plugin (already in `vite.config.ts`).
+
+1. Framework preset: **TanStack Start** (auto-detect once Nitro is present).
+2. Do **not** set a custom static `outputDirectory` like `dist` / `.next`.
+3. In Vercel env, set `VITE_API_URL` to your public API origin (the Vite `BACKEND_URL` proxy only works locally).
+4. Redeploy after adding Nitro.
