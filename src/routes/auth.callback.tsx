@@ -1,5 +1,9 @@
 import { completeOAuthSession } from "@/features/auth/session"
 import { resolvePostAuthPath } from "@/features/auth/profile"
+import {
+  buildMobileOAuthCallbackUrl,
+  takeMobileOAuthReturn,
+} from "@/features/auth/mobile-oauth-return"
 import { Button } from "@/components/ui/button"
 import { useI18n } from "@/features/preferences/i18n-provider"
 import { createFileRoute, useNavigate } from "@tanstack/react-router"
@@ -31,6 +35,19 @@ function GoogleCallbackPage() {
     if (authError) return
     if (!accessToken || !refreshToken) {
       setError(t("auth.googleMissingTokens"))
+      return
+    }
+
+    // Expo / native: bounce tokens to the app deep link and do not keep a web session.
+    const mobileReturn = takeMobileOAuthReturn()
+    if (mobileReturn) {
+      window.location.replace(
+        buildMobileOAuthCallbackUrl(mobileReturn, {
+          accessToken,
+          refreshToken,
+          expiresIn,
+        })
+      )
       return
     }
 

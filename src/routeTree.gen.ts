@@ -27,6 +27,7 @@ import { Route as AppResultsRouteImport } from './routes/_app/results'
 import { Route as AppTicketsRouteImport } from './routes/_app/tickets'
 import { Route as AppWithdrawRouteImport } from './routes/_app/withdraw'
 import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
+import { Route as AuthMobileGoogleRouteImport } from './routes/auth.mobile-google'
 import { Route as AppTicketsTicketIdRouteImport } from './routes/_app/tickets_.$ticketId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -118,6 +119,11 @@ const AuthCallbackRoute = AuthCallbackRouteImport.update({
   path: '/auth/callback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthMobileGoogleRoute = AuthMobileGoogleRouteImport.update({
+  id: '/auth/mobile-google',
+  path: '/auth/mobile-google',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppTicketsTicketIdRoute = AppTicketsTicketIdRouteImport.update({
   id: '/tickets_/$ticketId',
   path: '/tickets/$ticketId',
@@ -142,6 +148,7 @@ export interface FileRoutesByFullPath {
   '/tickets': typeof AppTicketsRoute
   '/withdraw': typeof AppWithdrawRoute
   '/auth/callback': typeof AuthCallbackRoute
+  '/auth/mobile-google': typeof AuthMobileGoogleRoute
   '/tickets/$ticketId': typeof AppTicketsTicketIdRoute
 }
 export interface FileRoutesByTo {
@@ -162,6 +169,7 @@ export interface FileRoutesByTo {
   '/tickets': typeof AppTicketsRoute
   '/withdraw': typeof AppWithdrawRoute
   '/auth/callback': typeof AuthCallbackRoute
+  '/auth/mobile-google': typeof AuthMobileGoogleRoute
   '/tickets/$ticketId': typeof AppTicketsTicketIdRoute
 }
 export interface FileRoutesById {
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/_app/tickets': typeof AppTicketsRoute
   '/_app/withdraw': typeof AppWithdrawRoute
   '/auth/callback': typeof AuthCallbackRoute
+  '/auth/mobile-google': typeof AuthMobileGoogleRoute
   '/_app/tickets_/$ticketId': typeof AppTicketsTicketIdRoute
 }
 export interface FileRouteTypes {
@@ -206,6 +215,7 @@ export interface FileRouteTypes {
     | '/tickets'
     | '/withdraw'
     | '/auth/callback'
+    | '/auth/mobile-google'
     | '/tickets/$ticketId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -226,6 +236,7 @@ export interface FileRouteTypes {
     | '/tickets'
     | '/withdraw'
     | '/auth/callback'
+    | '/auth/mobile-google'
     | '/tickets/$ticketId'
   id:
     | '__root__'
@@ -247,6 +258,7 @@ export interface FileRouteTypes {
     | '/_app/tickets'
     | '/_app/withdraw'
     | '/auth/callback'
+    | '/auth/mobile-google'
     | '/_app/tickets_/$ticketId'
   fileRoutesById: FileRoutesById
 }
@@ -261,6 +273,7 @@ export interface RootRouteChildren {
   RegisterRoute: typeof RegisterRoute
   VerifyOtpRoute: typeof VerifyOtpRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
+  AuthMobileGoogleRoute: typeof AuthMobileGoogleRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -391,6 +404,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/mobile-google': {
+      id: '/auth/mobile-google'
+      path: '/auth/mobile-google'
+      fullPath: '/auth/mobile-google'
+      preLoaderRoute: typeof AuthMobileGoogleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_app/tickets_/$ticketId': {
       id: '/_app/tickets_/$ticketId'
       path: '/tickets/$ticketId'
@@ -438,16 +458,8 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterRoute: RegisterRoute,
   VerifyOtpRoute: VerifyOtpRoute,
   AuthCallbackRoute: AuthCallbackRoute,
+  AuthMobileGoogleRoute: AuthMobileGoogleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
